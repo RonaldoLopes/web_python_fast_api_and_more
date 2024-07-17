@@ -1,0 +1,46 @@
+pyenv - escolher versões de python setar global
+pipx install poetry(ferramenta de gerenciamento de dependências e empacotamento para Python)
+pipx ensurepath
+pipx install ignr(gitignore)
+poetry new fast_zero
+pyproject.toml = requirements
+ambiente virtual = poetry install
+poetry add fastapi
+
+ativar ambiente virtual - poetry shell
+fastapi dev fast_zero/app.py
+
+Ruff - Um linter e formatador bem poderoso e rápido
+poetry add --group dev ruff
+Configurar no pyproject.toml
+[tool.ruff]
+line-length = 79
+extend-exclude = ['migrations']
+[tool.ruff.lint]
+preview = true
+select = ['I', 'F', 'E', 'W', 'PL', 'PT']
+ruff check .
+
+[tool.ruff.format]
+preview = true
+quote-style = 'single'
+
+ruff format .
+
+Pytest - Para escrevermos os teste
+poetry add --group dev pytest pytest-cov
+pytest-cov - ver o que está ou não coberto pelos teste
+[tool.pytest.ini_options]
+pythonpath = '.'
+addopts = 'p no:warnings'
+pytest --cov=fast_zero -vv
+coverage html
+
+Taskipy - Para não termos que lembrar todos so comandos da aplicação
+poetry add --group dev taskipy
+[tool.taskipy.tasks]
+run = 'fastapi dev fast_zero/app.py'
+test = 'pytest -s -x --cov=fast_zero -vv'
+post_test = 'coverage html'
+
+task run
