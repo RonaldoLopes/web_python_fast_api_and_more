@@ -43,4 +43,11 @@ run = 'fastapi dev fast_zero/app.py'
 test = 'pytest -s -x --cov=fast_zero -vv'
 post_test = 'coverage html'
 
-task run
+task run - executa a aplicação
+
+Pydantic <No universo de APIs e contratos de dados, especialmente ao trabalhar com Python, o
+ Pydantic se destaca como uma ferramenta poderosa e versátil. Além de embutida no
+ FastAPI.
+ A ideia dele é criar uma camada de documentação, via OpenAPI, e de fazer a validação
+ dos modelos de entrada e saída da nossa API.>
+
