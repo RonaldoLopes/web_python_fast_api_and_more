@@ -51,3 +51,14 @@ Pydantic <No universo de APIs e contratos de dados, especialmente ao trabalhar c
  A ideia dele é criar uma camada de documentação, via OpenAPI, e de fazer a validação
  dos modelos de entrada e saída da nossa API.>
 
+SQLAlchemy
+poetry add sqlalchemy
+
+Settings config
+poetry add pydantic-settings
+
+migrations
+poetry add alembic
+alembic init migrations
+alembic revision --autogenerate -m "create users table"
+alembic upgrade head
