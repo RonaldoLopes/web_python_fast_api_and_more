@@ -1,6 +1,7 @@
 from http import HTTPStatus
 
 from fastapi import Depends, FastAPI, HTTPException
+from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
@@ -90,3 +91,7 @@ def delete_user(user_id: int, session: Session = Depends(get_session)):
     session.commit()
 
     return {'message': 'User deleted'}
+
+@app.post('/token')
+def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(),Session = Depends(get_session)):
+    pass
